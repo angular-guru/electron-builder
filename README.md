@@ -37,3 +37,5 @@ Next, we need to update `angular.json` to use the `electron-builder` in two plac
     ...
 }
 ```
+
+You can find a basic example project using the Electron builder can be [found here](https://github.com/angular-guru/electron-seed).
