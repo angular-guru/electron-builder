@@ -1,6 +1,6 @@
 {
   "name": "@angular-guru/electron-builder",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "description": "Electron Builder for the Angular CLI.",
   "license": "MIT",
   "homepage": "https://angular-guru.com",
