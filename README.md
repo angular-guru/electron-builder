@@ -26,14 +26,14 @@ Next, we need to update `angular.json` to use the `electron-builder` in two plac
 
 ```json
 "build": {
-    "builder": "@angular-guru/electron-builder:electron",
+    "builder": "@angular-guru/electron-builder:build",
     ...
 }
 ```
 
 ```json
 "serve": {
-    "builder": "@angular-guru/electron-builder:electron-dev-server",
+    "builder": "@angular-guru/electron-builder:dev-server",
     ...
 }
 ```
