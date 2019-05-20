@@ -1,6 +1,6 @@
 {
   "name": "@angular-guru/electron-builder",
-  "version": "7.2.14",
+  "version": "7.2.20",
   "description": "Electron Builder for the Angular CLI.",
   "license": "MIT",
   "homepage": "https://angular-guru.com",
@@ -21,8 +21,8 @@
   },
   "peerDependencies": {
     "rxjs": "^6.0.0",
-    "@angular-devkit/architect": ">=0.8.0",
-    "@angular-devkit/build-angular": ">=0.8.0"
+    "@angular-devkit/architect": ">=0.13.0",
+    "@angular-devkit/build-angular": ">=0.13.0"
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.13.8",
