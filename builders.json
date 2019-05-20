@@ -9,6 +9,11 @@
       "class": "./src/electron-dev-server",
       "schema": "./src/electron-dev-server/schema.json",
       "description": "Electron Builder using dev-server"
+    },
+    "karma": {
+      "class": "./src/electron-karma",
+      "schema": "./src/electron-karma/schema.json",
+      "description": "Electron Builder for Karma"
     }
   }
 }
