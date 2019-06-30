@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema",
   "title": "Karma Target",
   "description": "Karma target options for Build Facade.",
   "type": "object",
@@ -62,10 +63,18 @@
       "type": "string",
       "description": "Defines the build environment."
     },
+    "include": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Globs of files to include, relative to workspace or project root. \nThere are 2 special cases:\n - when a path to directory is provided, all spec files ending \".spec.@(ts|tsx)\" will be included\n - when a path to a file is provided, and a matching spec file exists it will be included instead"
+    },
     "sourceMap": {
       "description": "Output sourcemaps.",
       "default": true,
-      "oneOf": [{
+      "oneOf": [
+        {
           "type": "object",
           "properties": {
             "scripts": {
@@ -140,7 +149,8 @@
       "description": "Replace files with other files in the build.",
       "type": "array",
       "items": {
-        "oneOf": [{
+        "oneOf": [
+          {
             "type": "object",
             "properties": {
               "src": {
@@ -182,6 +192,10 @@
       "items": {
         "type": "string"
       }
+    },
+    "webWorkerTsConfig": {
+      "type": "string",
+      "description": "TypeScript configuration for Web Worker modules."
     }
   },
   "additionalProperties": false,
@@ -192,7 +206,8 @@
   ],
   "definitions": {
     "assetPattern": {
-      "oneOf": [{
+      "oneOf": [
+        {
           "type": "object",
           "properties": {
             "glob": {
@@ -228,7 +243,8 @@
       ]
     },
     "extraEntryPoint": {
-      "oneOf": [{
+      "oneOf": [
+        {
           "type": "object",
           "properties": {
             "input": {

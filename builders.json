@@ -1,17 +1,17 @@
 {
   "builders": {
     "build": {
-      "class": "./src/electron",
+      "implementation": "./src/electron",
       "schema": "./src/electron/schema.json",
       "description": "Electron Builder"
     },
     "dev-server": {
-      "class": "./src/electron-dev-server",
+      "implementation": "./src/electron-dev-server",
       "schema": "./src/electron-dev-server/schema.json",
       "description": "Electron Builder using dev-server"
     },
     "karma": {
-      "class": "./src/electron-karma",
+      "implementation": "./src/electron-karma",
       "schema": "./src/electron-karma/schema.json",
       "description": "Electron Builder for Karma"
     }

@@ -1,6 +1,7 @@
 {
   "title": "Webpack browser schema for Build Facade.",
   "description": "Browser target options",
+  "type": "object",
   "properties": {
     "assets": {
       "type": "array",
@@ -56,6 +57,7 @@
     },
     "optimization": {
       "description": "Enables optimization of the build output.",
+      "x-user-analytics": 16,
       "oneOf": [
         {
           "type": "object",
@@ -98,6 +100,7 @@
     "aot": {
       "type": "boolean",
       "description": "Build using Ahead of Time compilation.",
+      "x-user-analytics": 13,
       "default": false
     },
     "sourceMap": {
@@ -298,12 +301,33 @@
     "profile": {
       "type": "boolean",
       "description": "Output profile events for Chrome profiler.",
-      "default": false
+      "default": false,
+      "x-deprecated": "Use \"NG_BUILD_PROFILING\" environment variable instead."
     },
     "es5BrowserSupport": {
       "description": "Enables conditionally loaded ES2015 polyfills.",
       "type": "boolean",
-      "default": false
+      "x-deprecated": "This will be determined from the list of supported browsers specified in the 'browserslist' file."
+    },
+    "rebaseRootRelativeCssUrls": {
+      "description": "Change root relative URLs in stylesheets to include base HREF and deploy URL. Use only for compatibility and transition. The behavior of this option is non-standard and will be removed in the next major release.",
+      "type": "boolean",
+      "default": false,
+      "x-deprecated": true
+    },
+    "webWorkerTsConfig": {
+      "type": "string",
+      "description": "TypeScript configuration for Web Worker modules."
+    },
+    "crossOrigin": {
+      "type": "string",
+      "description": "Define the crossorigin attribute setting of elements that provide CORS support.",
+      "default": "none",
+      "enum": [
+        "none",
+        "anonymous",
+        "use-credentials"
+      ]
     }
   },
   "additionalProperties": false,

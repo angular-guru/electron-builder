@@ -1,10 +1,15 @@
-import { DevServerBuilder as DevServerBuilderBase, NormalizedBrowserBuilderSchema } from '@angular-devkit/build-angular';
-import { Path, virtualFs } from '@angular-devkit/core';
-import * as fs from 'fs';
 
-export default class DevServerBuilder extends DevServerBuilderBase {
+import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
+import { executeDevServerBuilder } from '@angular-devkit/build-angular';
+import { json } from '@angular-devkit/core';
+import { Observable } from 'rxjs';
 
-  buildWebpackConfig(root: Path, projectRoot: Path, host: virtualFs.Host<fs.Stats>, browserOptions: NormalizedBrowserBuilderSchema): any {
-    return { ...super.buildWebpackConfig(root, projectRoot, host, browserOptions), target: 'electron-renderer' };
-  }
+export function buildElectronDevServer(options: any, context: BuilderContext): Observable<BuilderOutput> {
+  return executeDevServerBuilder(options, context, {
+    webpackConfiguration: (config) => {
+      return { ...config, target: 'electron-renderer' };
+    }
+  });
 }
+
+export default createBuilder<json.JsonObject>(buildElectronDevServer);

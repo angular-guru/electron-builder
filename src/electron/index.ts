@@ -1,12 +1,14 @@
-import { BrowserBuilder } from '@angular-devkit/build-angular';
-import { Path, virtualFs } from '@angular-devkit/core';
-import * as fs from 'fs';
-import { Configuration } from 'webpack';
-import { ElectronBuilderSchema } from './schema';
+import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
+import { executeBrowserBuilder } from '@angular-devkit/build-angular';
+import { json } from '@angular-devkit/core';
+import { Observable } from 'rxjs';
 
-export default class ElectronBuilder extends BrowserBuilder {
-
-  buildWebpackConfig(root: Path, projectRoot: Path, host: virtualFs.Host<fs.Stats>, options: ElectronBuilderSchema): Configuration {
-    return { ...super.buildWebpackConfig(root, projectRoot, host, options), target: 'electron-renderer' };
-  }
+export function buildElectron(options: any, context: BuilderContext): Observable<BuilderOutput> {
+  return executeBrowserBuilder(options, context, {
+    webpackConfiguration: (config) => {
+      return { ...config, target: 'electron-renderer' };
+    }
+  });
 }
+
+export default createBuilder<json.JsonObject>(buildElectron);

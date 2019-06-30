@@ -1,6 +1,6 @@
 {
   "name": "@angular-guru/electron-builder",
-  "version": "7.2.20",
+  "version": "8.0.0",
   "description": "Electron Builder for the Angular CLI.",
   "license": "MIT",
   "homepage": "https://angular-guru.com",
@@ -21,17 +21,18 @@
   },
   "peerDependencies": {
     "rxjs": "^6.0.0",
-    "@angular-devkit/architect": ">=0.13.0",
-    "@angular-devkit/build-angular": ">=0.13.0"
+    "@angular-devkit/architect": ">=0.800.0",
+    "@angular-devkit/build-angular": ">=0.800.0",
+    "@angular/compiler-cli": ">=8.0.0"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.13.8",
-    "@angular-devkit/build-angular": "^0.13.8",
-    "@angular-devkit/core": "^7.3.8",
+    "@angular-devkit/architect": "^0.800.6",
+    "@angular-devkit/build-angular": "^0.800.6",
+    "@angular-devkit/core": "^8.0.6",
     "@types/node": "^10.3.2",
     "@types/webpack": "^4.4.0",
     "@types/webpack-dev-server": "^2.9.4",
-    "typescript": "~2.9.2",
+    "typescript": "^3.4.5",
     "webpack": "^4.12.0",
     "webpack-dev-server": "^3.1.4"
   }

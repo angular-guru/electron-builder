@@ -1,4 +1,4 @@
-# Electron Builder for Angular CLI v7+
+# Electron Builder for Angular CLI v8+
 
 ### Overview
 

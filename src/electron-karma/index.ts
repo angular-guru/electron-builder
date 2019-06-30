@@ -1,11 +1,15 @@
-import { KarmaBuilder } from '@angular-devkit/build-angular';
-import { Path, virtualFs } from '@angular-devkit/core';
-import * as fs from 'fs';
-import { ElectronKarmaBuilderSchema } from './schema';
 
-export default class ElectronBuilder extends KarmaBuilder {
+import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
+import { executeKarmaBuilder } from '@angular-devkit/build-angular';
+import { json } from '@angular-devkit/core';
+import { Observable } from 'rxjs';
 
-  buildWebpackConfig(root: Path, projectRoot: Path, sourceRoot: Path | undefined, host: virtualFs.Host<fs.Stats>, options: ElectronKarmaBuilderSchema): any {
-    return { ...super.buildWebpackConfig(root, projectRoot, sourceRoot, host, options), target: 'electron-renderer' };
-  }
+export function buildElectronKarma(options: any, context: BuilderContext): Observable<BuilderOutput> {
+  return executeKarmaBuilder(options, context, {
+    webpackConfiguration: (config) => {
+      return { ...config, target: 'electron-renderer' };
+    }
+  });
 }
+
+export default createBuilder<json.JsonObject>(buildElectronKarma);
